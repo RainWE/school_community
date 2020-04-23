@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @MapperScan(basePackages = "school.community.mapper")
 @SpringBootApplication
 public class CommunityApplication {
-
+	//测试中文
 	public static void main(String[] args) {
 		SpringApplication.run(CommunityApplication.class, args);
 	}
