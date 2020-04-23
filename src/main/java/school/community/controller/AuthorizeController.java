@@ -1,6 +1,5 @@
 package school.community.controller;
 
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -8,9 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import school.community.dto.AccessTokenDTO;
 import school.community.dto.GithubUser;
+import school.community.mapper.UserMapper;
+import school.community.model.User;
 import school.community.prodiver.GithubProvider;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.UUID;
 
 /**
  * @Auther:cdx
@@ -31,6 +33,9 @@ public class AuthorizeController {
     @Value("${github.redirect.uri}")
     private String redirectUri;
 
+    @Autowired
+    private UserMapper userMapper;
+
     @RequestMapping("/callback")
     public String callback(@RequestParam(name="code") String code,
                            @RequestParam(name="state") String state,
@@ -46,6 +51,15 @@ public class AuthorizeController {
 //      测试得到用户名
 //        System.out.println(githubUser.getName());
         if(githubUser !=null){
+            User user =new User();
+            user.setToken(UUID.randomUUID().toString());
+            user.setName(githubUser.getName());
+            user.setAccountId(String.valueOf(githubUser.getId()));
+            user.setGmtCreate(System.currentTimeMillis());
+            user.setGmtModified(user.getGmtCreate());
+//            System.out.println(user.toString());
+            //向数据库user表插入数据
+            userMapper.insert(user);
             //登录成功，写cookie和session
             request.getSession().setAttribute("user", githubUser);
             return "redirect:/";
