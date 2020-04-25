@@ -3,7 +3,7 @@ package school.community.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import school.community.dto.AccessTokenDTO;
 import school.community.dto.GithubUser;
@@ -37,7 +37,7 @@ public class AuthorizeController {
     @Autowired
     private UserMapper userMapper;
 
-    @RequestMapping("/callback")
+    @GetMapping("/callback")
     public String callback(@RequestParam(name="code") String code,
                            @RequestParam(name="state") String state,
                            HttpServletResponse response){
