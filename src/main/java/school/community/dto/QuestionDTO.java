@@ -1,15 +1,16 @@
-package school.community.model;
+package school.community.dto;
 
 import lombok.Data;
+import school.community.model.User;
 
 /**
  * @Auther:cdx
- * @Date:2020-04-24
- * @Description:school.community.model
+ * @Date:2020-04-25
+ * @Description:school.community.dto
  * @Version:1.0
  */
 @Data
-public class Question {
+public class QuestionDTO {
     private Integer id;
     private String title;
     private String tag;
@@ -20,6 +21,5 @@ public class Question {
     private Integer commentCount;
     private Integer viewCount;
     private Integer likeCount;
-
-
+    private User user;
 }
