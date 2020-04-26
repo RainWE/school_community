@@ -32,7 +32,7 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(HttpServletRequest request
-                        , Model model) {
+            , Model model) {
         Cookie[] cookies = request.getCookies();
         if (cookies != null && cookies.length != 0)
             for (Cookie cookie : cookies) {
@@ -47,7 +47,7 @@ public class IndexController {
             }
 
         List<QuestionDTO> questionList = questionService.list();
-        model.addAttribute("questions",questionList);
+        model.addAttribute("questions", questionList);
         return "index";
     }
 
