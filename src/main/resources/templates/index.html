@@ -39,7 +39,9 @@
                     </a>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading" th:text="${question.title}"></h4>
+                    <h4 class="media-heading">
+                        <a th:href="@{'/question/'+${question.id}}" th:text="${question.title}"></a>
+                    </h4>
                     <span th:text="${question.description}"></span><br>
                     <span class="text-desc">
                         <span th:text="${question.commentCount}"></span>个回复 •
@@ -51,28 +53,28 @@
             </div>
             <nav aria-label="Page navigation">
                 <ul class="pagination">
-<!--                    跳转第一页-->
+                    <!--                    跳转第一页-->
                     <li th:if="${pagination.showFirstPage}">
                         <a href="/?page=1" aria-label="Previous">
                             <span aria-hidden="true">&lt;&lt;</span>
                         </a>
                     </li>
-<!--                    跳转上一页-->
+                    <!--                    跳转上一页-->
                     <li th:if="${pagination.showPrevious}">
                         <a th:href="@{/(page=${pagination.page -1})}" aria-label="Previous">
                             <span aria-hidden="true">&lt;</span>
                         </a>
                     </li>
                     <li th:each="page : ${pagination.pages}" th:class="${pagination.page==page}?'active':''">
-                        <a th:href="@{/(page=${page})}" th:text="${page}" ></a>
+                        <a th:href="@{/(page=${page})}" th:text="${page}"></a>
                     </li>
-<!--                    跳转下一页-->
+                    <!--                    跳转下一页-->
                     <li th:if="${pagination.showNext}">
                         <a th:href="@{/(page=${pagination.page +1})}" aria-label="Previous">
                             <span aria-hidden="true">&gt;</span>
                         </a>
                     </li>
-<!--                    跳转最后一页-->
+                    <!--                    跳转最后一页-->
                     <li th:if="${pagination.showEndPage}">
                         <a th:href="@{/(page=${pagination.totalPage})}" aria-label="Previous">
                             <span aria-hidden="true">&gt;&gt;</span>
