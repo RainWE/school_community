@@ -8,6 +8,7 @@ import school.community.dto.PaginationDTO;
 import school.community.dto.QuestionDTO;
 import school.community.exception.CustomizeErrorCode;
 import school.community.exception.CustomizeException;
+import school.community.mapper.QuestionExtMapper;
 import school.community.mapper.QuestionMapper;
 import school.community.mapper.UserMapper;
 import school.community.model.Question;
@@ -31,6 +32,9 @@ public class QuestionService {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private QuestionExtMapper questionExtMapper;
 
     public PaginationDTO list(Integer page, Integer size) {
         PaginationDTO paginationDTO = new PaginationDTO();
@@ -152,5 +156,12 @@ public class QuestionService {
 
 
         }
+    }
+
+    public void incView(Integer id) {
+        Question question= new Question();
+        question.setId(id);
+        question.setViewCount(1);
+        questionExtMapper.incView(question);
     }
 }
