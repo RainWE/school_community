@@ -10,6 +10,7 @@ import school.community.dto.AccessTokenDTO;
 import school.community.dto.GithubUser;
 import school.community.mapper.UserMapper;
 import school.community.model.User;
+import school.community.model.UserExample;
 import school.community.prodiver.GithubProvider;
 import school.community.service.UserService;
 import sun.security.ssl.Debug;
@@ -18,6 +19,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.time.Year;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -69,9 +71,13 @@ public class AuthorizeController {
             user.setAccountId(String.valueOf(githubUser.getId()));
             user.setAvatarUrl(githubUser.getAvatarUrl());
             userService.createOrUpdate(user);
-            user = userMapper.findByAccountId(user.getAccountId());
-
-            response.addCookie(new Cookie("token",token));
+//            user = userMapper.findByAccountId(user.getAccountId());
+            UserExample userExample = new UserExample();
+            userExample.createCriteria().andAccountIdEqualTo(user.getAccountId());
+            List<User> users= userMapper.selectByExample(userExample);
+            user=users.get(0);
+            Cookie cookie=new Cookie("token",token);
+            response.addCookie(cookie);
             request.getSession().setAttribute("user",user);
             return "redirect:/";
         }else {

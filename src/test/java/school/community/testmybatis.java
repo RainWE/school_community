@@ -5,8 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import school.community.mapper.UserMapper;
 import school.community.model.User;
 
-import java.util.UUID;
-
 /**
  * @Auther:cdx
  * @Date:2020-04-23
