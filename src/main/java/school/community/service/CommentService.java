@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import school.community.dto.CommentDTO;
 import school.community.enums.CommentTypeEnum;
+import school.community.enums.NotificationTypeEnum;
 import school.community.exception.CustomizeErrorCode;
 import school.community.exception.CustomizeException;
 import school.community.mapper.*;
