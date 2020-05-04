@@ -7,7 +7,7 @@
     <context id="DB2Tables" targetRuntime="MyBatis3">
         <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"></plugin>
 
-<!--        在jdbcConnection中加入<property name="nullCatalogMeansCurrent" value="true" />就行了-->
+        <!--        在jdbcConnection中加入<property name="nullCatalogMeansCurrent" value="true" />就行了-->
         <!-- 数据库链接URL，用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
                         connectionURL="jdbc:mysql://localhost:3306/mycommunity?useUnicode =true&amp;characterEncoding = UTF-8&amp;useSSL =false&amp;serverTimezone = GMT"
@@ -15,10 +15,10 @@
                         password="123456">
             <property name="useInformationSchema" value="true"/>
             <property name="nullCatalogMeansCurrent" value="true"/>
-<!--            <property name="serverTimezone" value="GMT"/>-->
-<!--            <property name="useUnicode" value="true"/>-->
-<!--            <property name="characterEncoding" value="UTF-8"/>-->
-<!--            <property name="useSSL" value="false"/>-->
+            <!--            <property name="serverTimezone" value="GMT"/>-->
+            <!--            <property name="useUnicode" value="true"/>-->
+            <!--            <property name="characterEncoding" value="UTF-8"/>-->
+            <!--            <property name="useSSL" value="false"/>-->
         </jdbcConnection>
         <!-- 类型转换 -->
         <javaTypeResolver>
@@ -46,6 +46,9 @@
         <table tableName="user" domainObjectName="User"></table>
         <table tableName="question" domainObjectName="Question"></table>
         <table tableName="comment" domainObjectName="Comment"></table>
+        <table tableName="notification" domainObjectName="Notification"></table>
+        <table tableName="nav" domainObjectName="Nav"></table>
+        <table tableName="ad" domainObjectName="Ad"></table>
     </context>
 
 </generatorConfiguration>

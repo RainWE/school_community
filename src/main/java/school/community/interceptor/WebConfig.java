@@ -3,6 +3,7 @@ package school.community.interceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * @Auther:cdx
@@ -11,14 +12,14 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
  * @Version:1.0
  */
 @Configuration
-//@EnableWebMvc  //开启配置默认配置失效
-public class WebConfig {
+//@EnableWebMvc
+public class WebConfig implements WebMvcConfigurer {
 
     @Autowired
     private SessionInterceptor sessionInterceptor;
 
-    public void addInterceptors(InterceptorRegistry registration){
-        registration.addInterceptor(sessionInterceptor).addPathPatterns("/**");
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(sessionInterceptor).addPathPatterns("/**");
     }
-
 }

@@ -1,10 +1,14 @@
 package school.community.service;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.session.RowBounds;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import school.community.dto.PaginationDTO;
 import school.community.dto.QuestionDTO;
+import school.community.dto.QuestionQueryDTO;
+import school.community.enums.SortEnum;
 import school.community.exception.CustomizeErrorCode;
 import school.community.exception.CustomizeException;
 import school.community.mapper.QuestionExtMapper;
@@ -27,6 +31,7 @@ import java.util.stream.Collectors;
  */
 @Service
 public class QuestionService {
+
     @Autowired
     private QuestionMapper questionMapper;
 

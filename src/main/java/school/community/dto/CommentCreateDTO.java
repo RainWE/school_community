@@ -11,3 +11,4 @@ public class CommentCreateDTO {
     private String content;
     private Integer type;
 }
+

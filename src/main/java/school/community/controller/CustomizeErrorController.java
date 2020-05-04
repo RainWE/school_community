@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("${server.error.path:${error.path:/error}}")
 public class CustomizeErrorController implements ErrorController {
+
     @Override
     public String getErrorPath() {
         return "error";
@@ -37,6 +38,7 @@ public class CustomizeErrorController implements ErrorController {
 
         return new ModelAndView("error");
     }
+
     private HttpStatus getStatus(HttpServletRequest request) {
         Integer statusCode = (Integer) request
                 .getAttribute("javax.servlet.error.status_code");

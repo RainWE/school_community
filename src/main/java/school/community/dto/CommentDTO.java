@@ -11,7 +11,6 @@ import school.community.model.User;
  */
 @Data
 public class CommentDTO {
-
     private Long id;
     private Long parentId;
     private Integer type;
