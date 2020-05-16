@@ -28,6 +28,7 @@ import java.util.UUID;
  * @Date:2020-04-22
  * @Description:school.community.controller
  * @Version:1.0
+ * 登录
  */
 @Controller
 @Slf4j

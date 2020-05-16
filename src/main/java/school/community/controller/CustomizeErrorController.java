@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
  * @Date:2020-04-30
  * @Description:school.community.controller
  * @Version:1.0
+ * 错误处理
  */
 @Controller
 @RequestMapping("${server.error.path:${error.path:/error}}")

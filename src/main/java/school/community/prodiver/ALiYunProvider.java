@@ -1,17 +1,14 @@
 package school.community.prodiver;
 
 import com.aliyun.oss.OSS;
-import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.OSSClientBuilder;
-import com.aliyun.oss.model.OSSObject;
 import com.aliyun.oss.model.ObjectMetadata;
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import school.community.exception.CustomizeErrorCode;
 import school.community.exception.CustomizeException;
 
-import java.io.*;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Date;
 import java.util.UUID;
@@ -21,6 +18,7 @@ import java.util.UUID;
  * @Date:2020-05-05
  * @Description:school.community.prodiver
  * @Version:1.0
+ * 图片上传和回调
  */
 @Component
 public class ALiYunProvider {

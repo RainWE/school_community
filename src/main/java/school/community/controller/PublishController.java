@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
  * @Date:2020-04-24
  * @Description:school.community.controller
  * @Version:1.0
+ * 发布提问
  */
 @Controller
 public class PublishController {

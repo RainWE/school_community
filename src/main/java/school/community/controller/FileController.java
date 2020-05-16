@@ -10,12 +10,12 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import school.community.dto.FileDTO;
 import school.community.prodiver.ALiYunProvider;
-import school.community.prodiver.OSSClientUtil;
 
 import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by codedrinker on 2019/6/26.
+ * 图片上传和回调
  */
 @Controller
 @Slf4j
@@ -23,9 +23,10 @@ public class FileController {
     @Autowired
     private ALiYunProvider aLiYunProvider;
 
-    @Autowired
-    private OSSClientUtil ossClientUtil;
+//    @Autowired
+//    private OSSClientUtil ossClientUtil;
 
+    //图片上传
     @RequestMapping("/file/upload")
     @ResponseBody
     public FileDTO upload(HttpServletRequest request) {

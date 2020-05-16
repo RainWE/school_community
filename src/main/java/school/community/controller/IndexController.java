@@ -16,6 +16,7 @@ import java.util.List;
  * @Date:2020-04-20
  * @Description:school.community.controller
  * @Version:1.0
+ * 首页
  */
 @Controller
 public class IndexController {
